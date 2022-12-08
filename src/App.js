@@ -25,7 +25,7 @@ const errorLink = onError(({ graphqlErrors, networkError }) => {
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: "http://localhost:8000/app/api" }),
+  new HttpLink({ uri: "http://au3378:8000/app/api" }),
 ]);
 
 const client = new ApolloClient({

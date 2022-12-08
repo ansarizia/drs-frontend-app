@@ -26,6 +26,9 @@ function SystemSummary() {
     if(data){
     setSystemSummaryResponse(data.systemSummary);
   }
+  else {
+    setSystemSummaryResponse(JobData.map((element) => element.data.jobsBySystem));
+  }
 
   }, [data])
 
