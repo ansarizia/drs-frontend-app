@@ -1,15 +1,15 @@
 import { usePagination, useTable, Column } from "react-table";
 import { JobDetailsData } from "../stubs/JobDetailsData";
 import { useState, useContext,useEffect } from "react";
-import '../css/table.css'
+import { AppContext } from '../App';
+import '../css/newtable.css';
 
-function JobDet() {
 
-}
 
 function JobDetails() {
 
   const [myData, setMyData] = JobDetailsData.map((element) => element.data.jobDetails);
+  const { systemName,selectedJob } = useContext(AppContext);
 
   /*
   const keys = Object.keys(myData[0]).join(',');
@@ -52,8 +52,9 @@ function JobDetails() {
 
 
   return (
+    <div class="page-contain">
     <div class="card">
-      <button onClick={changeHandler}>Refresh Data</button>
+      {/*<button onClick={changeHandler}>Refresh Data</button>*/}
 
       {console.log(values)}
       {console.log(tableRows)}
@@ -62,12 +63,16 @@ function JobDetails() {
 
       {/* Table */}
 
-      <div class="table-title"> Job Details Data</div>
-      <div class="table-wrapper">
+      <div class="table-title">  <h3> {selectedJob}</h3> </div>
+      <div class="button-container">
+      <button class="primary" title="Update Selected Rows"> Update Selected Rows</button></div>
+      <div class="table-concept">
+      
 
-      <table class="fl-table">
+      <table >
         <thead>
           <tr>
+          <th>Select</th>
             {tableRows.map((rows, index) => {
               return <th key={index}>{rows}</th>;
             })}
@@ -76,7 +81,8 @@ function JobDetails() {
         <tbody>
           {values.map((value, index) => {
             return (
-              <tr key={index}>
+              <tr  key={index}> 
+              <td><input type="checkbox"/></td>
                 {value.map((val, i) => {
                   return <td key={i}>{val}</td>;
                 })}
@@ -90,6 +96,7 @@ function JobDetails() {
       </div>
 
     
+    </div>
     </div>
   )
 }

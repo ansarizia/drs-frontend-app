@@ -2,17 +2,17 @@ export const JobData= [ {
   "data": {
     "jobsBySystem": [
       {
-        "systemName": "CBCM",
+        "systemName": "CBCM-Offline",
         "pendingJobs": 1,
         "completedJobs": 2
       },
       {
-        "systemName": "CSS",
+        "systemName": "CSS-Offline",
         "pendingJobs": 0,
         "completedJobs": 10
       },
       {
-        "systemName": "CIM",
+        "systemName": "CIM-Offline",
         "pendingJobs": 5,
         "completedJobs": 1
       }

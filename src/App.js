@@ -1,11 +1,13 @@
-import logo from './logo.svg';
-import './css/App.css';
+import logo from './images/eand-icon.svg';
+import './css/DataCard.css';
 import { useState,createContext } from "react";
 import { BrowserRouter as Router, Routes, Route , Link } from 'react-router-dom';
 import SystemSummary from './pages/SystemSummary';
 import JobSummary from './pages/JobSummary';
 import Navbar from './pages/Navbar';
 import JobDetails from './pages/JobDetails';
+import ContactPage from './pages/ContactPage';
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -40,18 +42,20 @@ function App() {
 
   const [systemName, setSystemName] = useState("");
   const [selectedSystem, setSelectedSystem] = useState("");
+  const [selectedJob, setSelectedJob] = useState("");
 
   return (
     <ApolloProvider client={client}>
       <div >
 
-        <AppContext.Provider value={{ systemName, setSystemName ,selectedSystem , setSelectedSystem}}>
+        <AppContext.Provider value={{ systemName, setSystemName ,selectedSystem , setSelectedSystem,selectedJob, setSelectedJob}}>
           <Router>
             <Navbar className="App-header" />
             <Routes>
               <Route path='/' element={<SystemSummary />} />
               <Route path='/jobsummary' element={<JobSummary />} />
               <Route path='/jobdetails' element={<JobDetails />} />
+              <Route path='/contactus' element={<ContactPage />} />
               <Route path='*' element=<h3> Page Not Found </h3> />
             </Routes>
           </Router>

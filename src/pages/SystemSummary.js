@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import '../css/App.css';
+import '../css/DataCard.css';
 import BarChart from '../components/BarChart';
 import LineChart from '../components/LineChart';
 import PieChart from '../components/PieChart';
@@ -13,7 +13,7 @@ import { LOAD_SYSTEMSUMMARY } from '../GraphQL/Queries';
 function SystemSummary() {
 
 
-  /* const [mydata, setMydata] = JobData.map((element) => element.data.jobsBySystem) */
+  const [mydata, setMydata] = JobData.map((element) => element.data.jobsBySystem) 
   const { setSystemName,setSelectedSystem } = useContext(AppContext);
   
   
@@ -24,10 +24,17 @@ function SystemSummary() {
   const { error, loading, data } = useQuery(LOAD_SYSTEMSUMMARY);
   useEffect(() => {
     if(data){
-    setSystemSummaryResponse(data.systemSummary);
+    
+    if (data.jobsBySystem.length > 0) {
+      setSystemSummaryResponse(data.systemSummary);
+      
   }
   else {
-    setSystemSummaryResponse(JobData.map((element) => element.data.jobsBySystem));
+    setSystemSummaryResponse(mydata);
+  }
+  }
+  else {
+    setSystemSummaryResponse(mydata);
   }
 
   }, [data])
@@ -41,8 +48,8 @@ function SystemSummary() {
           label: props.label,
           data: [props.data.completedJobs, props.data.pendingJobs],
           backgroundColor: [
-            'Green',
-            'Orange'
+            '#47B39C',
+            '#FFC154'
 
           ]
         }]
