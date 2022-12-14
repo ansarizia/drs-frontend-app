@@ -1,7 +1,7 @@
 import logo from './images/eand-icon.svg';
 import './css/DataCard.css';
-import { useState,createContext } from "react";
-import { BrowserRouter as Router, Routes, Route , Link } from 'react-router-dom';
+import { useState, createContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import SystemSummary from './pages/SystemSummary';
 import JobSummary from './pages/JobSummary';
 import Navbar from './pages/Navbar';
@@ -38,17 +38,18 @@ const client = new ApolloClient({
 export const AppContext = createContext();
 
 function App() {
-  
+
 
   const [systemName, setSystemName] = useState("");
   const [selectedSystem, setSelectedSystem] = useState("");
   const [selectedJob, setSelectedJob] = useState("");
+  const [inquiryQ, setInquiryQ] = useState("");
 
   return (
     <ApolloProvider client={client}>
       <div >
 
-        <AppContext.Provider value={{ systemName, setSystemName ,selectedSystem , setSelectedSystem,selectedJob, setSelectedJob}}>
+        <AppContext.Provider value={{ systemName, setSystemName, selectedSystem, setSelectedSystem, selectedJob, setSelectedJob, inquiryQ, setInquiryQ }}>
           <Router>
             <Navbar className="App-header" />
             <Routes>

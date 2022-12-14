@@ -4,7 +4,7 @@ export const CBCMJobStatus= [
           "jobsPerStatus": [
             {
               "id": "8",
-              "jobName": "Order_Submission-Offline",
+              "jobName": "Order_Submission",
               "jobStatus": 0,
               "pendingRecords": true,
               "runDate": "2022-11-15T19:52:02+00:00",
@@ -12,7 +12,7 @@ export const CBCMJobStatus= [
             },
             {
               "id": "9",
-              "jobName": "SR _Closure-Offline",
+              "jobName": "SR _Closure",
               "jobStatus": 0,
               "pendingRecords": true,
               "runDate": "2022-11-15T19:52:02+00:00",
